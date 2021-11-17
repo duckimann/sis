@@ -54,8 +54,7 @@
             <h2>Results:</h2>
             {% for score in scores %}
             <figure style="float: left; margin-right: 20px; margin-bottom: 20px;">
-                <img src="{{ score[1] }}" height="200px">
-                <figcaption class="img_name" data="{{ score[1] }}"></figcaption>
+                <img src="{{ score[1] }}" height="200px" title="{{ score[1] }}">
                 <figcaption>{{ score[0] }}</figcaption>
             </figure>
             {% endfor %}
@@ -63,9 +62,6 @@
         <script>
             document.querySelector("form").onchange = ({path: [,, form]}) => {
                 form.submit();
-            }
-            for (let item of Array.from(document.querySelectorAll(".img_name"))) {
-                item.innerHTML = item.getAttribute("data").match(/[^\\\/]+$/g)[0];
             }
         </script>
     </body>
